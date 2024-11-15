@@ -1,0 +1,1 @@
+grahpql deploy command --> sanity graphql deploy --dataset production --tag default

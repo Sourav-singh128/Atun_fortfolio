@@ -1,0 +1,15 @@
+.metric-background {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 30vh;
+}
+
+.flex {
+  display: flex;
+  gap: 7%;
+}
+
+.metric {
+  color: red;
+  font-weight: 700;
+}
