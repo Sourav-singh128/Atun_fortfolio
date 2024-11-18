@@ -3,6 +3,7 @@ import "./header.css";
 import hero from "../../image/pilani_background.jfif";
 import Marquee from "react-fast-marquee";
 import Dropdown from "../../components/dropdown/dropdown";
+import { Typography } from "@mui/material";
 function Header() {
   const publicationLinks = [
     {
@@ -50,17 +51,29 @@ function Header() {
       <div className="hero-sec">
         <img src={hero} alt="hero-img" className="hero-img" />
         <div className="hero-text">
-          <h1>Dr. Atun Roy Choudhury</h1>
-          <h3>Civil Engineer</h3>
+          <Typography variant="h3" sx={{ fontWeight: "700", color: "white" }}>
+            Dr. Atun Roy Choudhury
+          </Typography>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "700", color: "white", marginTop: "5.5%" }}
+          >
+            Environmental Engineer
+          </Typography>
           <Marquee
-            style={{ color: "red", fontWeight: "600" }}
+            style={{
+              color: "ivory",
+              fontWeight: "700",
+              fontSize: "large",
+              marginTop: "3%",
+            }}
             pauseOnHover
             speed={70}
             delay={2}
             direction="left"
           >
             Driving Innovation in Sustainable Waste Management and Environmental
-            Solutions
+            Solutions: Turning Trash into Treasure
           </Marquee>
         </div>
       </div>

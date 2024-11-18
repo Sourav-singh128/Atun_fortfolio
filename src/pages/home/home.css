@@ -1,1 +1,8 @@
+.MuiAvatar-root img {
+  width: 90%;
+}
 
+.metric {
+  padding: 2% 1%;
+  /* height: 40vh; */
+}

@@ -10,22 +10,22 @@ const Cards = (props) => {
   // console.log("url ", url, " desc ", desc);
   return (
     <>
-      <Card sx={{ width: props.width }}>
+      <Card sx={{ width: props.width, height: props.height }}>
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
+            height="350"
             image={url}
             alt="green iguana"
           />
-          <CardContent>
+          {/* <CardContent>
             <Typography
               variant="body2"
               sx={{ color: "balck", fontSize: "20px", fontWeight: "700" }}
             >
               {desc}
             </Typography>
-          </CardContent>
+          </CardContent> */}
         </CardActionArea>
       </Card>
     </>

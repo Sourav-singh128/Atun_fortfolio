@@ -6,12 +6,21 @@ import gogleScholar from "../../image/go.jpeg";
 import orcid from "../../image/orcid_new.jpeg";
 import Logo from "../../image/bitPilani_logo.jpeg";
 import labLogo from "../../image/bits_lab_logo.jpeg";
+import footerBackground from "../../image/Background_Final.jpeg";
 function Footer() {
   return (
     <>
       <div className="divider" />
       <div className="footer-sec">
-        <img src={Logo} alt="bits" className="logo" />
+        {/* <div style={{ backgroundImage: `url(${footerBackground})` }} /> */}
+        <img
+          src={footerBackground}
+          className="bgImg"
+          alt="background-image"
+          style={{ width: "-webkit-fill-available", height: "30vh" }}
+        />
+
+        {/* <img src={Logo} alt="bits" className="logo" />
         <Typography>@2024 by Atun Roy Choudhury</Typography>
         <div className="link">
           <Link to=" https://www.linkedin.com/in/dr-atun-roy-choudhury-a64a3b116/">
@@ -26,7 +35,7 @@ function Footer() {
           <Link to="https://www.bits-pilani.ac.in/hyderabad/bestlab/people/">
             <img src={labLogo} className="footer-link" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </>
   );

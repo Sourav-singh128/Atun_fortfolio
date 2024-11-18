@@ -42,7 +42,7 @@ const SwiperComp = ({ achivements }) => {
         <SwiperSlide>Slide 9</SwiperSlide> */}
         {achivements.map((value) => (
           <SwiperSlide>
-            <Cards url={value.url} desc={value.desc} width="50%" />
+            <Cards url={value.url} desc={value.desc} width="50%" height="450" />
           </SwiperSlide>
         ))}
       </Swiper>

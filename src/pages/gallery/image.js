@@ -1,9 +1,19 @@
 import masterResearch from "./images/masterResearch.jpg";
-import nitRoukela from "./images/nitRoukela.jpeg";
-import primeMinister from "./images/primeMinister.jpeg";
+import nitRoukela from "./images/nitRoukela.jpg";
+import primeMinister from "./images/primeMinister.jpg";
 import vcBitsPilani from "./images/vcBitsPilani.jpg";
-import lordsInstitute from "./images/lordsInstitute.jpeg";
-import annamaliaInstitue from "./images/annamaliaInstitue.png";
+import lordsInstitute from "./images/lordsInstitute.jpg";
+import annamaliaInstitue from "./images/annamaliaInstitue.jpg";
+import iucee from "./images/iucee.jpg";
+import iitBombay from "./images/iitBombay.jpg";
+import dareToDream from "./images/dareToDream.jpg";
+import iitDelhi from "./images/iitDelhi.jpg";
+import tedx from "./images/tedx.jpg";
+import vbit from "./images/vbit.jpg";
+import fdpConducted from "./images/fdpConducted.jpg";
+import esdaWinner from "./images/esdaWinner.jpg";
+import nedoFunded from "./images/nedoFunded.jpg";
+
 const cards = [
   {
     imgUrl: masterResearch,
@@ -29,6 +39,33 @@ const cards = [
   {
     imgUrl: annamaliaInstitue,
     desc: "Delivered a plenary talk at Annamalai University",
+  },
+  {
+    imgUrl: iucee,
+  },
+  {
+    imgUrl: iitBombay,
+  },
+  {
+    imgUrl: dareToDream,
+  },
+  {
+    imgUrl: iitDelhi,
+  },
+  {
+    imgUrl: tedx,
+  },
+  {
+    imgUrl: vbit,
+  },
+  {
+    imgUrl: fdpConducted,
+  },
+  {
+    imgUrl: esdaWinner,
+  },
+  {
+    imgUrl: nedoFunded,
   },
 ];
 

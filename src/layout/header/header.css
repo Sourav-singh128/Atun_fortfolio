@@ -58,3 +58,11 @@
   width: 100%;
   top: 28%;
 }
+
+.MuiInputBase-root::before {
+  /* background-color: red; */
+  border-bottom: none !important;
+}
+.MuiFormControl-root label {
+  bottom: 30px;
+}
