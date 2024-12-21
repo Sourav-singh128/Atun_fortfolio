@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Box from "@mui/material/Box";
 import { RotatingLines } from "react-loader-spinner";
-function About() {
-  const [tableData, setTableData] = useState([]);
+import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+function Collaborators() {
+  const [inCollabBody, setInCollabBody] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const urlArr = location.pathname.split("/");
   const url = urlArr[urlArr.length - 1];
-  console.log(url);
   const regex = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
   useEffect(() => {
     async function netlifyFunc() {
@@ -22,13 +22,22 @@ function About() {
       );
       const data = await res.json();
       console.log("data ", data);
-      setTableData(data);
+      setInCollabBody(data);
       setLoading(false);
     }
     netlifyFunc();
   }, [url]);
   return (
     <>
+      {url === "national_collaborators" ? (
+        <Typography variant="h4" sx={{ paddingTop: "2%" }}>
+          Top National Collaborations
+        </Typography>
+      ) : url === "international_collaborators" ? (
+        <Typography variant="h4" sx={{ paddingTop: "2%" }}>
+          Top International Collaborations
+        </Typography>
+      ) : null}
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         {loading ? (
           <RotatingLines
@@ -43,14 +52,14 @@ function About() {
             wrapperClass=""
           />
         ) : (
-          <Box>
+          <Box sx={{ fontSize: "large" }}>
             <table>
               <tr>
-                {Object.keys(tableData[0]).map((heading) => (
+                {Object.keys(inCollabBody[0]).map((heading) => (
                   <th>{heading}</th>
                 ))}
               </tr>
-              {tableData.map((row) => (
+              {inCollabBody.map((row) => (
                 <tr>
                   {Object.keys(row).map((col) => {
                     return String(row[col]).match(regex) !== null ? (
@@ -61,8 +70,8 @@ function About() {
                           style={{
                             height: "151px",
                             width: "150px",
-                            // borderRadius: "50%",
-                            // border: "2px solid black",
+                            borderRadius: "50%",
+                            border: "2px solid black",
                           }}
                         />
                       </td>
@@ -80,4 +89,4 @@ function About() {
   );
 }
 
-export default About;
+export default Collaborators;

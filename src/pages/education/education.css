@@ -1,0 +1,14 @@
+.education-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 45px;
+  margin-top: 2%;
+}
+
+.education-container p span {
+  font-weight: 700;
+}
+
+.education-container p {
+  font-size: large;
+}

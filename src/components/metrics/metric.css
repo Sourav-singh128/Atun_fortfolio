@@ -1,14 +1,15 @@
 .metric-background {
   background-color: lavender;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   border-radius: 10px;
 }
 
-.flex {
+.flex-home {
   display: flex;
   gap: 7%;
   padding: 0 15px;
+  flex-wrap: wrap;
 }
 
 .metric {

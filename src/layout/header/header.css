@@ -1,18 +1,18 @@
 .header {
   height: 50px;
-  border: 1px solid black;
-  width: 80%;
-  border-radius: 30px;
+  /* border: 1px solid black; */
+  width: 100%;
+  /* border-radius: 30px; */
   margin-left: auto;
   margin-right: auto;
-  background-color: #deded6;
+  /* background-color: #deded6; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  /* padding: 0 15px; */
   position: absolute;
   top: 10%;
-  left: 10%;
+  /* left: 10%; */
   z-index: 1000;
 }
 
@@ -65,4 +65,11 @@
 }
 .MuiFormControl-root label {
   bottom: 30px;
+}
+
+.MuiFormLabel-root {
+  top: -6px !important;
+}
+.MuiSvgIcon-root {
+  top: -2px !important;
 }

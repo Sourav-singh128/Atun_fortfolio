@@ -4,3 +4,15 @@
 }
 
 /* .css-n70jm4-MuiInputBase-root-MuiInput-root-MuiSelect-root::before */
+
+#option * {
+  border-radius: 20px;
+}
+
+.dropdown {
+  background: none;
+  border: none;
+  color: #786cb0;
+  font-size: 18px;
+  max-width: 100px;
+}

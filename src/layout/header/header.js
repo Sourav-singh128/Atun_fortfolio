@@ -4,46 +4,91 @@ import hero from "../../image/pilani_background.jfif";
 import Marquee from "react-fast-marquee";
 import Dropdown from "../../components/dropdown/dropdown";
 import { Typography } from "@mui/material";
+import Navbar from "./navbar";
 function Header() {
   const publicationLinks = [
     {
+      label: "Top 10 Publications",
+      link: "top10_publication",
+    },
+    {
       label: "Journals",
-      link: "journals",
+      link: "journal_article",
     },
     {
       label: "Book Chapters",
-      link: "book_chapters",
+      link: "book_chapter",
     },
     {
       label: "Magazines",
-      link: "magazines",
+      link: "magazine_article",
     },
     {
       label: "Conferences",
-      link: "conferences",
-    },
-    {
-      label: "Top 10 Publications",
-      link: "top_10_publications",
+      link: "conference_article",
     },
     {
       label: "Editorial Ventures",
       link: "editorial_ventures",
     },
+    {
+      label: "International Collaborators",
+      link: "international_collaborators",
+    },
+    {
+      label: "National Collaborators",
+      link: "national_collaborators",
+    },
   ];
 
-  const moreLinks = [
+  const aboutLinks = [
+    {
+      label: "Education",
+      link: "education",
+    },
+    {
+      label: "Honors & Awards",
+      link: "honors_&_awards",
+    },
+    {
+      label: "Editor & Reviewer",
+      link: "editor_&_reviewer",
+    },
+    {
+      label: "Scholarships",
+      link: "scholarship",
+    },
+    {
+      label: "Interviews",
+      link: "interviews",
+    },
+    {
+      label: "Record Holding",
+      link: "record_holding",
+    },
+    {
+      label: "Upcoming Events",
+      link: "upcoming_events",
+    },
+
+    {
+      label: "Patents",
+      link: "patent",
+    },
+    {
+      label: "Courses",
+      link: "courses",
+    },
+  ];
+
+  const more = [
     {
       label: "Gallery",
       link: "gallery",
     },
     {
-      label: "Contact Us",
-      link: "contact_us",
-    },
-    {
-      label: "Goggle Scholar",
-      link: "google_scholor",
+      label: "Contact Me",
+      link: "contact_me",
     },
   ];
   return (
@@ -51,14 +96,22 @@ function Header() {
       <div className="hero-sec">
         <img src={hero} alt="hero-img" className="hero-img" />
         <div className="hero-text">
-          <Typography variant="h3" sx={{ fontWeight: "700", color: "white" }}>
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: "700",
+              color: "darkblue",
+              fontFamily: "Fredericka the Great, serif",
+              fontStyle: "normal",
+            }}
+          >
             Dr. Atun Roy Choudhury
           </Typography>
           <Typography
             variant="h4"
-            sx={{ fontWeight: "700", color: "white", marginTop: "5.5%" }}
+            sx={{ fontWeight: "700", color: "darkblue", marginTop: "9.5%" }}
           >
-            Environmental Engineer
+            Environmentalist
           </Typography>
           <Marquee
             style={{
@@ -77,34 +130,21 @@ function Header() {
           </Marquee>
         </div>
       </div>
-      <div className="header">
+      {/* <div className="header">
         <Link className="link" to="/">
           Home{" "}
         </Link>
-        <Link className="link" to="about">
-          About Me
+        <Dropdown links={aboutLinks} label="About" />
+        <Dropdown links={publicationLinks} label="Publications" />
+        <Link className="link" to="experience">
+          Experience{" "}
         </Link>
-        {/* <Link className="link" to="publication">
-          Publications{" "}
-        </Link> */}
-        <Dropdown links={publicationLinks} label="publication" />
-        <Link className="link" to="presentation">
-          Presentations{" "}
+        <Link className="link" to="lecture_as_resource_person">
+          Teaching & Mentorship
         </Link>
-        <Link className="link" to="industry_visit">
-          Industry Visit{" "}
-        </Link>
-        <Link className="link" to="tech_for_fun">
-          Tech for Fun
-        </Link>
-        {/* <Link className="link" to="gallery">
-          More
-        </Link> */}
-        <Dropdown links={moreLinks} label="more" />
-        <Link className="link" to="contact_me">
-          Contact Me{" "}
-        </Link>
-      </div>
+        <Dropdown links={more} label="More" />
+      </div> */}
+      <Navbar />
     </>
   );
 }

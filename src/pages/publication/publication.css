@@ -1,9 +1,23 @@
 tr {
   border-top: 1px solid black;
-  background-color: yellow;
+  background-color: lavender;
+  height: 50px;
 }
 table {
   display: block;
   overflow-x: auto;
-  white-space: nowrap;
+  padding: 0 10px;
+  border-radius: 40px;
+  margin-top: 3%;
+}
+
+td {
+  max-width: 90%;
+  white-space: normal;
+  text-align: justify;
+  padding: 0 10px;
+}
+
+.link {
+  text-decoration: none;
 }

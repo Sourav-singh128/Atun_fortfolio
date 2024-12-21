@@ -1,0 +1,28 @@
+.bio-waste-img {
+  width: 80%;
+}
+
+.solid-waste-img {
+  width: 60%;
+}
+
+.editorial_img_container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+  flex-wrap: wrap;
+  row-gap: 50px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  padding: 0 5%;
+  text-align: justify;
+  line-height: 27px;
+}
+
+.flex li {
+  font-size: 18px !important;
+}

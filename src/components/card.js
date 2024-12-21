@@ -14,7 +14,7 @@ const Cards = (props) => {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="350"
+            height={props.height}
             image={url}
             alt="green iguana"
           />

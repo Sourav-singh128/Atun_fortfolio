@@ -20,24 +20,35 @@ function Dropdown(props) {
           {props.label}
         </InputLabel>
         <Select
-          labelId="demo-simple-select-standard-label"
-          id="demo-simple-select-standard"
+          // labelId="demo-simple-select-standard-label"
+          // id="demo-simple-select-standard"
           value={value}
           onChange={handleChange}
+          displayEmpty
+          inputProps={{ "aria-label": "Without label" }}
           label="Age"
         >
           {links.map((value) => (
-            <Link className="link" to={`${label}/${value.link}`}>
+            <Link className="link" to={`${label.toLowerCase()}/${value.link}`}>
               <MenuItem value="">{value.label}</MenuItem>
             </Link>
           ))}
-
-          {/* <MenuItem value={10}>Book Chapters</MenuItem>
-          <MenuItem value={20}>Magazines</MenuItem>
-          <MenuItem value={30}>Conferences</MenuItem>
-          <MenuItem value={20}>Top 10 Publications</MenuItem>
-          <MenuItem value={20}>Editorial Ventures</MenuItem> */}
         </Select>
+        {/* <select
+          className="dropdown"
+          onChange={() => {
+            console.log("onChange fire");
+          }}
+        
+        >
+          {links.map((value) => (
+            <option id="option" value={`${label}/${value.link}`}>
+              <Link className="link" to={`${label}/${value.link}`}>
+                {value.label}
+              </Link>
+            </option>
+          ))}
+        </select> */}
       </FormControl>
     </>
   );

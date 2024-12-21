@@ -1,121 +1,87 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import "./publication.css";
-// import Jounals from "./firebase/journals";
 import Firestore from "./firebase/firestore";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { RotatingLines } from "react-loader-spinner";
 
 function Publication() {
   const [value, setValue] = React.useState(0);
+  const [pubHeading, setPubHeading] = useState([]);
+  const [pubBody, setPubBody] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const location = useLocation();
+  const urlArr = location.pathname.split("/");
+  const url = urlArr[urlArr.length - 1];
+  console.log(url);
+  let urlRegex = /(https?:\/\/[^\s]+)/g;
 
   const handleChange = (event, newValue) => {
     console.log("val ", newValue);
     setValue(newValue);
   };
 
-  function a11yProps(index) {
-    return {
-      id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
-    };
-  }
+  useEffect(() => {
+    async function netlifyFunc() {
+      const res = await fetch(
+        "http://localhost:8888/.netlify/functions/publication-function",
+        {
+          method: "post",
+          headers: { "Content-Type": "Application/json" },
+          body: JSON.stringify({ url: url }),
+        }
+      );
+      const data = await res.json();
+      console.log("data ", data);
+      setPubHeading(data.slice(0, 1));
+      setPubBody(data.slice(1));
+      setLoading(false);
+    }
+    netlifyFunc();
+  }, [url]);
+
   return (
     <>
-      <p>Publication page</p>
-      {/* <Jounals /> */}
-      <Firestore />
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-
-        {value === 0 && (
+        {loading ? (
+          <RotatingLines
+            visible={true}
+            height="96"
+            width="96"
+            color="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        ) : (
           <Box>
             <table>
               <tr>
-                <th>Authors</th>
-                <th>Title</th>
-                <th>Journal Title</th>
-                <th>Volume</th>
-                <th>Number</th>
-                <th>Pages</th>
-                <th>Year</th>
-                <th>Publisher</th>
+                {Object.keys(pubHeading[0]).map((heading) => (
+                  <th>{heading}</th>
+                ))}
               </tr>
-              <tr>
-                <td>
-                  Venkatesh, K. R., Choudhury, A. R., Lionel, M. J., &
-                  Aruthchelvan, V.
-                </td>
-                <td>
-                  Campus Monitoring System for Annamalai University by Open
-                  Source Software and Modern Surveying Application
-                </td>
-                <td>
-                  International Journal of Engineering Science and Technology
-                </td>
-                <td>8</td>
-                <td>6</td>
-                <td>89-96</td>
-                <td>2016</td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-              </tr>
-            </table>
-          </Box>
-        )}
-
-        {value === 1 && (
-          <Box>
-            <table>
-              <tr>
-                <th>Name</th>
-                <th>Game</th>
-                <th>Fame</th>
-              </tr>
-              <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-              </tr>
-              <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-              </tr>
-            </table>
-          </Box>
-        )}
-
-        {value === 2 && (
-          <Box>
-            <table>
-              <tr>
-                <th>Car</th>
-                <th>Bus</th>
-                <th>Truck</th>
-              </tr>
-              <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-              </tr>
-              <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-              </tr>
+              {pubBody.map((row) => (
+                <tr>
+                  {Object.keys(row).map((col) => {
+                    return String(row[col]).match(urlRegex) !== null ? (
+                      <td>
+                        <Link to={row[col]} className="link">
+                          link
+                        </Link>
+                      </td>
+                    ) : (
+                      <td>{row[col]}</td>
+                    );
+                  })}
+                </tr>
+              ))}
             </table>
           </Box>
         )}

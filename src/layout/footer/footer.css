@@ -27,6 +27,8 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  right: 3%;
+  top: 10%;
 }
 .footer-link {
   width: 28px;
@@ -34,4 +36,17 @@
 
 .logo {
   width: 10%;
+  bottom: 0;
+  right: 0;
+}
+.positioning {
+  position: absolute;
+}
+
+.bgImg {
+  position: relative;
+}
+
+.scanner-container {
+  position: absolute;
 }

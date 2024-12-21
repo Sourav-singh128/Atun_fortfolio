@@ -1,0 +1,22 @@
+.text-container {
+  text-align: justify;
+  /* margin-left: 22%; */
+  /* line-height: 41px; */
+  padding: 0 5%;
+  margin-right: 10%;
+}
+
+.para {
+  margin-top: 1%;
+  display: flex;
+  gap: 15px;
+  font-size: large;
+}
+
+.asterik {
+  font-weight: 700;
+}
+
+.sec-col {
+  min-width: 200px;
+}

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { RotatingLines } from "react-loader-spinner";
-function About() {
+import "./about.css";
+function NestedRow() {
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const urlArr = location.pathname.split("/");
   const url = urlArr[urlArr.length - 1];
   console.log(url);
-  const regex = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
+  const regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i;
   useEffect(() => {
     async function netlifyFunc() {
       const res = await fetch(
@@ -53,18 +54,37 @@ function About() {
               {tableData.map((row) => (
                 <tr>
                   {Object.keys(row).map((col) => {
-                    return String(row[col]).match(regex) !== null ? (
-                      <td>
-                        <img
-                          src={row[col]}
-                          alt={row[col]}
-                          style={{
-                            height: "151px",
-                            width: "150px",
-                            // borderRadius: "50%",
-                            // border: "2px solid black",
-                          }}
-                        />
+                    return Array.isArray(row[col]) ? (
+                      <td className="column">
+                        {row[col].map((nest) => {
+                          return String(nest).match(regex) !== null ? (
+                            <tr style={{ height: "160px" }}>
+                              <td className="border">
+                                <img
+                                  src={nest}
+                                  alt={nest}
+                                  style={{
+                                    height: "130px",
+                                    width: "130px",
+                                    // borderRadius: "50%",
+                                    // border: "2px solid black",
+                                  }}
+                                />
+                              </td>
+                            </tr>
+                          ) : (
+                            <tr
+                              style={{
+                                height:
+                                  url === "editor_&_reviewers"
+                                    ? "60px"
+                                    : "160px",
+                              }}
+                            >
+                              <td className="border">{nest}</td>
+                            </tr>
+                          );
+                        })}
                       </td>
                     ) : (
                       <td>{row[col]}</td>
@@ -80,4 +100,4 @@ function About() {
   );
 }
 
-export default About;
+export default NestedRow;
