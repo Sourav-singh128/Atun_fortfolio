@@ -1,4 +1,4 @@
-var cloudinary = require("cloudinary");
+var cloudinary = require("cloudinary").v2;
 
 const handler = async (event) => {
   cloudinary.config({
