@@ -9,7 +9,7 @@ function GalleryCloudinary() {
   useEffect(() => {
     async function netlifyFunc() {
       const res = await fetch(
-        "http://localhost:8888/.netlify/functions/cloudinary-function",
+        "https://atunportfolio.netlify.app/.netlify/functions/cloudinary-function",
         {
           method: "post",
           headers: { "Content-Type": "Application/json" },
