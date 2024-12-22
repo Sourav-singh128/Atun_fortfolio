@@ -4,15 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^2.4.0",
+    "cloudinary": "^2.5.1",
     "mongodb": "^6.10.0"
   }
 }
