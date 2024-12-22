@@ -31,7 +31,7 @@ const TableWithHyphen = () => {
   useEffect(() => {
     async function netlifyFunc() {
       const res = await fetch(
-        "http://localhost:8888/.netlify/functions/publication-function",
+        "https://atunportfolio.netlify.app/.netlify/functions/publication-function",
         {
           method: "post",
           headers: { "Content-Type": "Application/json" },
